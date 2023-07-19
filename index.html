@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Calculator || HyperNexus</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, inital-scale=1.0">
+  <style>
+    body {
+        background: linear-gradient(350deg, #000000, #4d0830, #abd319);
+        display: grid;
+        font-family: Arial, Helvetica, sans-serif;
+    }
+    .calculator {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      grid-gap: 5px;
+      padding: 10px;
+      background: linear-gradient(350deg, #000000, #5160b1, #bb6396);
+      width: 400px;
+      border-radius: 15px;
+      height: 600px;
+    }
+    .calculator input {
+      grid-column: span 4;
+      margin-bottom: 5px;
+      padding: 5px;
+      border-radius: 11px;
+      background-color: rgb(155, 121, 168);
+      font-size: x-large;
+    }
+    button {
+        background-color: rgb(37, 35, 36);
+        border:2px solid #bb6396;
+        padding: 1px;
+        color: azure;
+        border-radius: 25px;
+        margin: 1px;
+        font-size: larger;
+    }
+    button:hover {
+        background-color: #4d0830;
+    }
+    button:active {
+        background-color: #8a4784;
+        color: #000;
+    }
+    .equal {
+        background-color: aliceblue;
+        width: 100px;
+    }
+    .navbar{
+        background-color: azure;
+        border-radius: 8px;
+        padding: 30px;
+        background: linear-gradient(350deg, #000000, #0d0acf, #ee0b7d);
+    }
+  </style>
+</head>
+<body>
+    <div class="navbar">
+      <strong style="font-size: 30px; color: aliceblue;">Calculator || HyperNexus</strong>
+    </div>
+
+<hr>
+
+  <div class="calculator">
+    <input type="text" id="result" readonly>
+
+    <button onclick="appendNumber(1)">1</button>
+    <button onclick="appendNumber(2)">2</button>
+    <button onclick="appendNumber(3)">3</button>
+    <button onclick="appendOperator('+')">+</button>
+
+    <button onclick="appendNumber(4)">4</button>
+    <button onclick="appendNumber(5)">5</button>
+    <button onclick="appendNumber(6)">6</button>
+    <button onclick="appendOperator('-')">-</button>
+
+    <button onclick="appendNumber(7)">7</button>
+    <button onclick="appendNumber(8)">8</button>
+    <button onclick="appendNumber(9)">9</button>
+    <button onclick="appendOperator('*')">*</button>
+
+    <button onclick="appendNumber(0)">0</button>
+    <button onclick="appendDecimal('.')">.</button>
+    <button onclick="clearInput()">C</button>
+    <button onclick="appendOperator('/')">/</button>
+    <button id="eqaul" onclick="calculate()">=</button>
+
+
+  </div>
+
+  <script>
+    function appendNumber(number) {
+      document.getElementById('result').value += number;
+    }
+
+    function appendOperator(operator) {
+      document.getElementById('result').value += operator;
+    }
+
+    function appendDecimal(decimal) {
+      document.getElementById('result').value += decimal;
+    }
+
+    function calculate() {
+      let expression = document.getElementById('result').value;
+      let result = eval(expression);
+      document.getElementById('result').value = result;
+    }
+
+    function clearInput() {
+      document.getElementById('result').value = '';
+    }
+  </script>
+</body>
+</html>
